@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Segment, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class Register extends Component {
   constructor(props) {
@@ -61,9 +62,11 @@ class Register extends Component {
         Or
         </div>
         
-        <Button className="green" fluid>
-          Login
-        </Button>
+        <Link to='/'>
+          <Button className="green" fluid>
+            Login
+          </Button>
+         </Link>
         
       </Segment>
     );

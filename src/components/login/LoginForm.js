@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Segment, Button } from 'semantic-ui-react';
-import loginImage from '../../login.png'
+import loginImage from '../../login.png';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -50,9 +51,11 @@ class LoginForm extends Component {
         Or
         </div>
 
-        <Button className="blue" fluid>
-          Register
-        </Button>
+        <Link to='/register'>
+          <Button className="blue" fluid>
+            Register
+          </Button>
+        </Link>
       </Segment>
     );
   }
