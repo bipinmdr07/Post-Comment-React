@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Image, Segment, Button } from 'semantic-ui-react';
 import loginImage from '../../login.png';
 import { Link } from 'react-router-dom';
+import { login } from '../../services/loginForm';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class LoginForm extends Component {
       username: '',
       password: ''
     }
+    this.handleLoginButtonClick = this.handleLoginButtonClick.bind(this);
   }
 
   usernameChangeHandler = (e) => {
@@ -18,6 +20,18 @@ class LoginForm extends Component {
 
   passwordChangeHandler = (e) => {
     this.setState({ password: e.target.value });
+  }
+
+  async handleLoginButtonClick(e) {
+    const loginData = {
+      username: this.state.username,
+      password: this.state.password
+    }
+
+    const { data } = await login(loginData);
+
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("refreshToken", data.refreshToken);
   }
 
   render() {
@@ -43,7 +57,7 @@ class LoginForm extends Component {
           </div>
         </div>
 
-        <Button className="green" fluid>
+        <Button className="green" fluid onClick={this.handleLoginButtonClick} >
           Login
         </Button>
 

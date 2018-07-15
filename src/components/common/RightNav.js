@@ -10,7 +10,7 @@ class RightNav extends Component {
         </Link> 
         <Link to='/register'>
           <a className="item">Sign Up</a>
-        </Link> 
+        </Link>
       </div>
     );
   }
