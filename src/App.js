@@ -4,13 +4,15 @@ import Post from './components/post/PostComponent';
 import './App.css';
 import Navigation from './components/common/Navbar';
 import LoginForm from './components/login/LoginForm';
+import RegisterForm from './components/register/RegisterForm';
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         <Navigation />
-        <LoginForm />
+        <RegisterForm />
+        {/* <LoginForm /> */}
         {/* <Post /> */}
       </React.Fragment>
     );
