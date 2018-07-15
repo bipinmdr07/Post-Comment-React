@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchPosts } from '../../services/post';
-import { Card } from 'semantic-ui-react';
+import { Card, Segment } from 'semantic-ui-react';
 
 class PostComponent extends Component {
   constructor(props) {
@@ -17,24 +17,35 @@ class PostComponent extends Component {
 
   renderPostItem = (post, index) => {
     return (
-      <Card key = {index} className="ui centered">
-        <Card.Content>
-          <Card.Header>
+      <div>
+        <Segment style={{width: 600, margin: "0 auto"}} key = {index} className="ui centered">
+          <div className="ui top attached header clearing">
             { post.title }
-          </Card.Header>
-          <Card.Description>
-            { post.body }
-          </Card.Description>
 
-        </Card.Content>
-      </Card>
+            <div className="ui right floated compact button red">
+              <i className="trash icon"></i>
+            </div>
+
+            <div className="ui right floated compact button">
+              <i className="edit icon"></i>
+            </div>
+
+          </div>
+          <div className="ui attached segment">
+            { post.body }
+          </div>
+        </Segment>
+
+        <span className="ui horizontal divider"></span>
+      </div>
     )
   }
 
   render() {
     return (
-      <div>
+      <div className="ui container">
         {this.state.posts.map(this.renderPostItem)}
+        
       </div>
     );
   }

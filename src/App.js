@@ -11,9 +11,9 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navigation />
-        <RegisterForm />
+        {/*<RegisterForm />*/}
         {/* <LoginForm /> */}
-        {/* <Post /> */}
+        <Post />
       </React.Fragment>
     );
   }
