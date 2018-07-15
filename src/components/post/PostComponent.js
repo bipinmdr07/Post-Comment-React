@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchPosts } from '../../services/post';
-import { Card, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 class PostComponent extends Component {
   constructor(props) {
@@ -11,13 +11,14 @@ class PostComponent extends Component {
   }
 
   async componentDidMount() {
+    console.log("fetching post");
     const posts = await fetchPosts();
     this.setState({ posts });
   }
 
   renderPostItem = (post, index) => {
     return (
-      <div>
+      <div key = {post.id}>
         <Segment style={{width: 600, margin: "0 auto"}} key = {index} className="ui centered">
           <div className="ui top attached header clearing">
             { post.title }

@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import logo from '../../logo.svg';
 
 class Logo extends Component {
-  constructor(props){
-    super(props);
-  }
-
   render() {
     return (
       <a className="item">
-        <img src={logo} style={{width : 50}}/>
+        <img src={logo} style={{width : 50}} alt="logo"/>
         Post-Comment
       </a>
     )

@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-import { Image, Segment, Input, Button } from 'semantic-ui-react';
+import { Image, Segment, Button } from 'semantic-ui-react';
 import loginImage from '../../login.png'
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      username: '',
+      password: ''
+    }
+  }
+
+  usernameChangeHandler = (e) => {
+    this.setState({ username: e.target.value });
+  }
+
+  passwordChangeHandler = (e) => {
+    this.setState({ password: e.target.value });
   }
 
   render() {
@@ -18,7 +30,7 @@ class LoginForm extends Component {
           <label>Username</label>
           <div className="ui left icon input">
             <i className="user icon"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Username" value={this.state.username} onChange={this.usernameChangeHandler} />
           </div>
         </div>
 
@@ -26,7 +38,7 @@ class LoginForm extends Component {
           <label>Password</label>
           <div className="ui left icon input">
             <i className="lock icon"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" value={this.state.password} onChange={this.passwordChangeHandler} />
           </div>
         </div>
 

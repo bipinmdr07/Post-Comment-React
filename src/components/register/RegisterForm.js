@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
-import { Segment, Button, Image } from 'semantic-ui-react';
+import { Segment, Button } from 'semantic-ui-react';
 
 class Register extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      username: "",
+      email: "",
+      password: ""
+    }
+  }
+
+  usernameChangeHandler = (e) => {
+    this.setState({ username: e.target.value });
+  }
+
+  emailChangeHandler = (e) => {
+    this.setState({ email: e.target.value });
+  }
+
+  passwordChangeHandler = (e) => {
+    this.setState({ password: e.target.value });
   }
 
   render() {
@@ -16,7 +33,7 @@ class Register extends Component {
           <label>Username</label>
           <div className="ui left icon input">
             <i className="user icon"></i>
-            <input type="text" placeholder="Username" />
+            <input type="text" placeholder="Username" value={this.state.username} onChange={this.usernameChangeHandler} />
           </div>
         </div>
 
@@ -24,7 +41,7 @@ class Register extends Component {
           <label>Email</label>
           <div className="ui left icon input">
             <i className="at icon"></i>
-            <input type="text" placeholder="Email address" />
+            <input type="text" placeholder="Email address" value={this.state.email} onChange={this.emailChangeHandler} />
           </div>
         </div>
 
@@ -32,7 +49,7 @@ class Register extends Component {
           <label>Password</label>
           <div className="ui left icon input">
             <i className="lock icon"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" value={this.state.password} onChange={this.passwordChangeHandler} />
           </div>
         </div>
 
