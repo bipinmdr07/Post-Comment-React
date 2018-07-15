@@ -22,7 +22,6 @@ class PostComponent extends Component {
           <Card.Header>
             { post.title }
           </Card.Header>
-
           <Card.Description>
             { post.body }
           </Card.Description>
