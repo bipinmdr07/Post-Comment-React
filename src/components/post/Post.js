@@ -22,13 +22,11 @@ class Post extends Component {
   handleEditClick = (e) => {
     e.preventDefault();
     this.props.history.push('/posts/' + this.state.id + '/edit');
-    console.log("Edit Clicked", this.state.id);
   }
 
   handleDeleteClick = (e) => {
     e.preventDefault();
     deletePost(this.state.id);
-    console.log("Delete Clicked", this.state.id);
   }
 
   render() {

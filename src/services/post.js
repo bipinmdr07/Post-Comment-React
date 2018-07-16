@@ -11,6 +11,11 @@ export const fetchPosts = async() => {
   return data;
 }
 
+export const createPost = async(postData) => {
+  const data = await http.post('/posts/', postData, authorizationHeader);
+  console.log(data);
+}
+
 export const fetchPost = async (id) => {
   const { data } = await http.get('/posts/' + id, authorizationHeader );
   return data;

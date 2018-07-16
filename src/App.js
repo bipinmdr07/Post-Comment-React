@@ -8,6 +8,7 @@ import RegisterForm from './components/register/RegisterForm';
 import Posts from './components/post/Posts';
 import Post from './components/post/Post';
 import PostEditForm from './components/post/PostEditForm';
+import PostCreateForm from './components/post/PostCreateForm';
 
 class App extends Component {
   render() {
@@ -16,11 +17,10 @@ class App extends Component {
         <div>
           <Navigation />
           <Route exact path="/" component={LoginForm} />
-          { /* <Route exact path='/' component={PostEditForm} /> */ }
           <Route exact path="/register" component={RegisterForm} />
           <Route exact path="/posts" component={Posts} />
+          <Route exact path="/post/new" component={PostCreateForm} />
           <Route exact path="/posts/:id" component={Post} />
-          <Route exact path="/posts/:id/new" />
           <Route exact path="/posts/:id/edit" component={PostEditForm} />
         </div>
       </Router>

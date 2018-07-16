@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { signUpUser } from '../../services/signup';
 
 class Register extends Component {
   constructor(props) {
@@ -17,15 +18,24 @@ class Register extends Component {
   }
 
   usernameChangeHandler = (e) => {
+    e.preventDefault();
     this.setState({ username: e.target.value });
   }
 
   emailChangeHandler = (e) => {
+    e.preventDefault();
     this.setState({ email: e.target.value });
   }
 
   passwordChangeHandler = (e) => {
+    e.preventDefault();
     this.setState({ password: e.target.value });
+  }
+
+  registerButtonClickHandler = async (e) => {
+    e.preventDefault();
+    const user = await signUpUser( this.state );
+    alert("User Created");
   }
 
   render() {
@@ -58,7 +68,7 @@ class Register extends Component {
           </div>
         </div>
 
-        <Button className="blue" fluid>
+        <Button className="blue" fluid onClick={this.registerButtonClickHandler} >
           Register
         </Button>
         

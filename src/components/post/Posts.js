@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { fetchPosts } from '../../services/post';
 import Post from './Post';
+import { Button, Icon } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom'
 
 class PostComponent extends Component {
   constructor(props) {
@@ -22,13 +24,21 @@ class PostComponent extends Component {
     )
   }
 
+  createPostButtonHandler = (e) => {
+    e.preventDefault();
+    this.props.history.push('/post/new');
+  }
+
   render() {
     return (
       <div className="ui container">
+        <Button size="large" color="teal" onClick={this.createPostButtonHandler} >
+          <Icon name="pencil alternate" /> Add New Post
+        </Button>
         {this.state.posts.map(this.renderPostItem)}
       </div>
     );
   }
 }
 
-export default PostComponent;
+export default withRouter(PostComponent);
