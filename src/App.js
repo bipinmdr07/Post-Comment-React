@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './components/common/Navbar';
 import LoginForm from './components/login/LoginForm';
 import RegisterForm from './components/register/RegisterForm';
-import Post from './components/post/Posts';
+import Posts from './components/post/Posts';
+import Post from './components/post/Post';
 
 class App extends Component {
   render() {
@@ -15,7 +16,10 @@ class App extends Component {
           <Navigation />
           <Route exact path="/" component={LoginForm} />
           <Route exact path="/register" component={RegisterForm} />
-          <Route exact path="/posts" component={Post} />
+          <Route exact path="/posts" component={Posts} />
+          <Route exact path="/posts/:id" component={Post} />
+          <Route exact path="/posts/:id/new" />
+          <Route exact path="/posts/:id/edit" />
         </div>
       </Router>
     );

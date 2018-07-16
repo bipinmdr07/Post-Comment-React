@@ -11,7 +11,6 @@ class PostComponent extends Component {
   }
 
   async componentDidMount() {
-    console.log("fetching post");
     const posts = await fetchPosts();
     // console.log(posts);
     this.setState({ posts });
