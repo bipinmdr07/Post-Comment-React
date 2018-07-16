@@ -5,11 +5,11 @@ class RightNav extends Component {
   render() {
     return (
       <div className="right menu">
-        <Link to='/'>
-          <a className="item">Login</a>
+        <Link to='/' className="item" >
+          Login
         </Link> 
-        <Link to='/register'>
-          <a className="item">Sign Up</a>
+        <Link to='/register' className="item" >
+          Sign Up
         </Link>
       </div>
     );
