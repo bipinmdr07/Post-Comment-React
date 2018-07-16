@@ -12,6 +12,10 @@ class Register extends Component {
     }
   }
 
+  componentDidMount() {
+    console.log(localStorage.getItem('token'));
+  }
+
   usernameChangeHandler = (e) => {
     this.setState({ username: e.target.value });
   }

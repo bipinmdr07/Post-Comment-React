@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Segment, Button } from 'semantic-ui-react';
 import loginImage from '../../login.png';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { login } from '../../services/loginForm';
 
 class LoginForm extends Component {
@@ -32,6 +32,8 @@ class LoginForm extends Component {
 
     localStorage.setItem("token", data.token);
     localStorage.setItem("refreshToken", data.refreshToken);
+
+    <Redirect to='/posts' />
   }
 
   render() {
@@ -57,9 +59,11 @@ class LoginForm extends Component {
           </div>
         </div>
 
-        <Button className="green" fluid onClick={this.handleLoginButtonClick} >
-          Login
-        </Button>
+        <Link to='/posts'>
+          <Button className="green" fluid onClick={this.handleLoginButtonClick} >
+            Login
+          </Button>
+        </Link> 
 
         <div className="ui horizontal divider" >
         Or

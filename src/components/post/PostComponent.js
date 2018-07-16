@@ -21,19 +21,24 @@ class PostComponent extends Component {
       <div key = {post.id}>
         <Segment style={{width: 600, margin: "0 auto"}} key = {index} className="ui centered">
           <div className="ui top attached header clearing">
-            { post.title }
-
+            if (!{post.title}) {
+              "No Title"
+            } else {
+              post.title
+            }
             <div className="ui right floated compact button red">
               <i className="trash icon"></i>
+              Delete
             </div>
 
             <div className="ui right floated compact button">
               <i className="edit icon"></i>
+              Edit
             </div>
 
           </div>
           <div className="ui attached segment">
-            { post.body }
+            { post.post }
           </div>
         </Segment>
 

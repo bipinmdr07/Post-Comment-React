@@ -6,6 +6,11 @@ export default axios.create ({
   // timeout: 1000,
   headers: {
     'Origin': '*',
-    'Content-Type': 'application/json'
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
   }
+  // headers: {
+  //   'Origin': '*',
+  //   'Content-Type': 'application/json'
+  // }
 });
