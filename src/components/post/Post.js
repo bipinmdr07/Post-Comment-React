@@ -27,6 +27,7 @@ class Post extends Component {
   handleDeleteClick = (e) => {
     e.preventDefault();
     deletePost(this.state.id);
+    this.props.history.refresh();
   }
 
   render() {

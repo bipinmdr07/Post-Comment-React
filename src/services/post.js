@@ -1,6 +1,6 @@
 import http from '../utils/http';
 
-const authorizationHeader = {
+export const authorizationHeader = {
   headers: {
     Authorization: localStorage.token
   }
@@ -12,8 +12,7 @@ export const fetchPosts = async() => {
 }
 
 export const createPost = async(postData) => {
-  const data = await http.post('/posts/', postData, authorizationHeader);
-  console.log(data);
+  await http.post('/posts/', postData, authorizationHeader);
 }
 
 export const fetchPost = async (id) => {
@@ -22,10 +21,9 @@ export const fetchPost = async (id) => {
 }
 
 export const updatePost = async (id, postUpdateData) => {
-  const { data } = await http.put('/posts/' + id, postUpdateData, authorizationHeader);
-  console.log(data);
+  await http.put('/posts/' + id, postUpdateData, authorizationHeader);
 }
 
 export const deletePost = async (id) => {
-  const { data } = await http.delete('/posts/' + id, authorizationHeader);
+  await http.delete('/posts/' + id, authorizationHeader);
 }

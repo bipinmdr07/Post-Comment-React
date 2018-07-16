@@ -13,10 +13,6 @@ class Register extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log(localStorage.getItem('token'));
-  }
-
   usernameChangeHandler = (e) => {
     e.preventDefault();
     this.setState({ username: e.target.value });
@@ -35,7 +31,7 @@ class Register extends Component {
   registerButtonClickHandler = async (e) => {
     e.preventDefault();
     const user = await signUpUser( this.state );
-    alert("User Created");
+    (user)? alert("User Created") : alert("User not created");
   }
 
   render() {
