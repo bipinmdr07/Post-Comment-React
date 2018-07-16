@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Segment, Button } from 'semantic-ui-react';
 import loginImage from '../../login.png';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { login } from '../../services/loginForm';
 
 class LoginForm extends Component {
@@ -15,14 +15,18 @@ class LoginForm extends Component {
   }
 
   usernameChangeHandler = (e) => {
+    e.preventDefault();
     this.setState({ username: e.target.value });
   }
 
   passwordChangeHandler = (e) => {
+    e.preventDefault();
     this.setState({ password: e.target.value });
   }
 
   async handleLoginButtonClick(e) {
+    e.preventDefault();
+    console.log(this.state);
     const loginData = {
       username: this.state.username,
       password: this.state.password
@@ -32,6 +36,9 @@ class LoginForm extends Component {
 
     localStorage.setItem("token", data.token);
     localStorage.setItem("refreshToken", data.refreshToken);
+    console.log(localStorage.token)
+
+    this.props.history.push('/posts');
   }
 
   render() {
@@ -57,11 +64,9 @@ class LoginForm extends Component {
           </div>
         </div>
 
-        <Link to='/posts'>
-          <Button className="green" fluid onClick={this.handleLoginButtonClick} >
-            Login
-          </Button>
-        </Link> 
+        <Button className="green" fluid onClick={this.handleLoginButtonClick} >
+          Login
+        </Button>
 
         <div className="ui horizontal divider" >
         Or
@@ -77,4 +82,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

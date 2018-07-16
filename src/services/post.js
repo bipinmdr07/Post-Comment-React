@@ -6,12 +6,21 @@ const authorizationHeader = {
   }
 };
 
-export async function fetchPosts() {
+export const fetchPosts = async() => {
   const { data } = await http.get('/posts', authorizationHeader );
   return data;
 }
 
-export async function fetchPost(id) {
+export const fetchPost = async (id) => {
   const { data } = await http.get('/posts/' + id, authorizationHeader );
   return data;
+}
+
+export const updatePost = async (id, postUpdateData) => {
+  const { data } = await http.put('/posts/' + id, postUpdateData, authorizationHeader);
+  console.log(data);
+}
+
+export const deletePost = async (id) => {
+  const { data } = await http.delete('/posts/' + id, authorizationHeader);
 }

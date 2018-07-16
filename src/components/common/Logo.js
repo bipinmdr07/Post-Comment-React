@@ -6,7 +6,7 @@ class Logo extends Component {
   render() {
     return (
       <Link to='/' className="item" >
-        <img src={logo} style={{width : 50}} alt="logo"/>
+        <img src={ logo } style={{width : 50}} alt="logo"/>
         Post-Comment
       </Link>       
     )

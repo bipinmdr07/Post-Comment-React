@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Segment } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import { fetchPost } from '../../services/post';
+import { Link, withRouter } from 'react-router-dom';
+import { fetchPost, deletePost } from '../../services/post';
 
 class Post extends Component {
   constructor(props) {
@@ -19,14 +19,16 @@ class Post extends Component {
     this.setState({id: id, post: post.post});
   }
 
-  handleEditClick = () => {
+  handleEditClick = (e) => {
+    e.preventDefault();
+    this.props.history.push('/posts/' + this.state.id + '/edit');
     console.log("Edit Clicked", this.state.id);
   }
 
-  handleDeleteClick = () => {
+  handleDeleteClick = (e) => {
+    e.preventDefault();
+    deletePost(this.state.id);
     console.log("Delete Clicked", this.state.id);
-    const postPath = '/posts/' + this.state.id;
-    console.log(postPath);
   }
 
   render() {
@@ -62,4 +64,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default withRouter(Post);
