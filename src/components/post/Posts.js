@@ -7,9 +7,13 @@ import withPostData from '../withPostData';
 
 class PostComponent extends Component {
 
-  renderPostItem = (post) => {
+  renderPostItem = (postData) => {
+    const {
+      id,
+      post
+    } = postData;
     return (
-      <Post id={post.id} post={post.post} key={post.id} />
+      <Post id={id} post={post} key={id} />
     )
   }
 

@@ -2,20 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { Segment } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { fetchPost, deletePost } from '../../services/post';
+import withPostData from '../withPostData';
 
 class Post extends Component {
-
-  state = {
-    id: null,
-    title: 'No Title',
-    post: ''
-  }
-
-  async componentDidMount() {
-    const id = this.props.id || this.props.match.params.id;
-    const post = (this.props.post)? this.props : await fetchPost(id);
-    this.setState({id: id, post: post.post});
-  }
 
   handleEditClick = (e) => {
     e.preventDefault();
@@ -33,9 +22,9 @@ class Post extends Component {
       <Fragment>
         <Segment style={{width: 600, margin: "0 auto"}} className="ui centered">
           <div className="ui top attached header clearing">
-
-            <Link to={'/posts/' + this.state.id}>
-              {this.state.title}
+            {console.log(this.props.id)}
+            <Link to={'/posts/' + this.props.id}>
+              {this.props.title}
             </Link> 
             
             <div className="ui right floated compact button red" onClick={this.handleDeleteClick} >
@@ -51,7 +40,7 @@ class Post extends Component {
 
           </div>
           <div className="ui attached segment">
-            { this.state.post }
+            { this.props.post }
           </div>
         </Segment>
 
@@ -61,4 +50,4 @@ class Post extends Component {
   }
 }
 
-export default withRouter(Post);
+export default withRouter(withPostData(Post));
