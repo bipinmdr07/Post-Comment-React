@@ -27,6 +27,7 @@ class LoginForm extends Component {
 
     localStorage.setItem("token", data.token);
     localStorage.setItem("refreshToken", data.refreshToken);
+    console.log("token set: ", localStorage.token);
 
     this.props.history.push('/posts');
   }

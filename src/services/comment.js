@@ -1,6 +1,6 @@
 import http from '../utils/http';
-import { authorizationHeader } from './post';
+import { getAuthorizationHeader } from './authorizationHeader';
 
 export const fetchComments = async (postId) => {
-  return await http.get('/comments/?postId=' + postId, authorizationHeader);
+  return await http.get('/comments/?postId=' + postId, getAuthorizationHeader(localStorage.token));
 }

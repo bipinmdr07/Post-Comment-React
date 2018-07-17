@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-import { fetchPosts } from '../../services/post';
-import Post from './Post';
 import { Button, Icon } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom'
 
-class PostComponent extends Component {
-  
-  state = {
-    posts: []
-  }
+import Post from './Post';
+import withPostData from '../withPostData';
 
-  async componentDidMount() {
-    const posts = await fetchPosts();
-    this.setState({ posts });
-  }
+class PostComponent extends Component {
 
   renderPostItem = (post) => {
     return (
@@ -32,10 +24,10 @@ class PostComponent extends Component {
         <Button size="large" color="teal" onClick={this.createPostButtonHandler} >
           <Icon name="pencil alternate" /> Add New Post
         </Button>
-        {this.state.posts.map(this.renderPostItem)}
+        {this.props.posts.map(this.renderPostItem)}
       </div>
     );
   }
 }
 
-export default withRouter(PostComponent);
+export default withRouter(withPostData(PostComponent));
