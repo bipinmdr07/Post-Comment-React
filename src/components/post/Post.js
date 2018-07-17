@@ -4,13 +4,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { fetchPost, deletePost } from '../../services/post';
 
 class Post extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: null,
-      title: 'No Title',
-      post: ''
-    }
+
+  state = {
+    id: null,
+    title: 'No Title',
+    post: ''
   }
 
   async componentDidMount() {

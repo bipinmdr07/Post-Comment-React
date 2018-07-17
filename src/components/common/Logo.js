@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../logo.svg';
 import { Link } from 'react-router-dom';
 
-const Logo = (props) => {
+const Logo = () => {
   return (
     <Link to='/' className='item' >
       <img src={ logo }

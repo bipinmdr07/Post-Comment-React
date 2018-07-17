@@ -7,22 +7,17 @@ import { login } from '../../services/loginForm';
 import InputField from '../common/InputField';
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    }
-    this.handleLoginButtonClick = this.handleLoginButtonClick.bind(this);
+  state = {
+    username: '',
+    password: ''
   }
 
   inputFieldChangeHandler = (key, value) => {
     this.setState({[key]: value});
   }
 
-  async handleLoginButtonClick(e) {
+  handleLoginButtonClick = async (e) => {
     e.preventDefault();
-    console.log(this.state);
     const loginData = {
       username: this.state.username,
       password: this.state.password
@@ -32,7 +27,6 @@ class LoginForm extends Component {
 
     localStorage.setItem("token", data.token);
     localStorage.setItem("refreshToken", data.refreshToken);
-    console.log(localStorage.token)
 
     this.props.history.push('/posts');
   }

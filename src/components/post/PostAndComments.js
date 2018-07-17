@@ -28,12 +28,12 @@ class PostAndComments extends Component {
         <div className="ui container comments">
           <h3 className="ui divider header">Comments</h3>
           {this.state.comments.map(this.renderComment)}
-          <form class="ui reply form">
-          <div class="field">
+          <form className="ui reply form">
+          <div className="field">
             <textarea></textarea>
           </div>
-          <div class="ui blue labeled submit icon button">
-            <i class="icon edit"></i> Add Reply
+          <div className="ui blue labeled submit icon button">
+            <i className="icon edit"></i> Add Reply
           </div>
         </form>
         </div> 

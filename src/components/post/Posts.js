@@ -5,11 +5,9 @@ import { Button, Icon } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom'
 
 class PostComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    }
+  
+  state = {
+    posts: []
   }
 
   async componentDidMount() {

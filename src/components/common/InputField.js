@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class InputField extends Component {
-
+  
   onChangeHandler = (e) => {
     e.preventDefault();
     this.props.inputFieldChangeHandler(e.target.name, e.target.value);
