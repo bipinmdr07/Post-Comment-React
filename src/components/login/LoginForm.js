@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Image, Segment, Button } from 'semantic-ui-react';
-import loginImage from '../../login.png';
 import { Link, withRouter } from 'react-router-dom';
+
+import loginImage from '../../login.png';
 import { login } from '../../services/loginForm';
+import InputField from '../common/InputField';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -14,14 +16,8 @@ class LoginForm extends Component {
     this.handleLoginButtonClick = this.handleLoginButtonClick.bind(this);
   }
 
-  usernameChangeHandler = (e) => {
-    e.preventDefault();
-    this.setState({ username: e.target.value });
-  }
-
-  passwordChangeHandler = (e) => {
-    e.preventDefault();
-    this.setState({ password: e.target.value });
+  inputFieldChangeHandler = (key, value) => {
+    this.setState({[key]: value});
   }
 
   async handleLoginButtonClick(e) {
@@ -48,21 +44,24 @@ class LoginForm extends Component {
           <Image src={loginImage} style = {{width: 100}} centered/>
           <span style = {{fontSize: 24}} >Login</span>
         </div>
-        <div className="field">
-          <label>Username</label>
-          <div className="ui left icon input">
-            <i className="user icon"></i>
-            <input type="text" placeholder="Username" value={this.state.username} onChange={this.usernameChangeHandler} />
-          </div>
-        </div>
 
-        <div className="field">
-          <label>Password</label>
-          <div className="ui left icon input">
-            <i className="lock icon"></i>
-            <input type="password" placeholder="Password" value={this.state.password} onChange={this.passwordChangeHandler} />
-          </div>
-        </div>
+        <InputField 
+        type="text"
+        name="username"
+        placeholder="Username"
+        value={ this.state.username }
+        iconType="user"
+        inputFieldChangeHandler={ this.inputFieldChangeHandler }
+        />
+
+        <InputField
+        type='password'
+        name='password'
+        placeholder='Password'
+        value={this.state.password}
+        iconType='lock'
+        inputFieldChangeHandler={ this.inputFieldChangeHandler }
+        />
 
         <Button className="green" fluid onClick={this.handleLoginButtonClick} >
           Login

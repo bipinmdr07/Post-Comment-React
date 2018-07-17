@@ -18,8 +18,6 @@ class PostAndComments extends Component {
   }
 
   renderComment = (comment) => {
-    console.log("*****************")
-    console.log(comment);
     return <Comment key={comment.id} id={comment.id} postId={this.state.postId} userId={comment.user_id} comment={comment.comment} />
   }
 

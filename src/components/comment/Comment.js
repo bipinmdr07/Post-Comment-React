@@ -13,7 +13,6 @@ class Comments extends Component {
   }
 
   render() {
-    console.log("Helo");
     return (
       // <div className="ui comments" >
       <div className="comment" style={{margin: 'auto 0'}} >

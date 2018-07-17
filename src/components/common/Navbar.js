@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Logo from './Logo';
 import RightNav from './RightNav';
 
-class Navbar extends Component {
-  render() {
-    return (
-      <div className="ui menu">
-        <div className="ui container">
-          <Logo />
-          <RightNav className="right menu" />
-        </div>
+const Navbar = () => {
+  return (
+    <div className="ui menu">
+      <div className="ui container">
+        <Logo />
+        <RightNav className="right menu" />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Navbar;
