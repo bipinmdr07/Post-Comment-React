@@ -35,14 +35,13 @@ const withPostData = (WrappedComponent) => {
 
     render() {
       const propsToSend = (typeof(this.state.id) !== 'undefined')? this.state : {post: this.state.post, posts: this.state.posts};
-      r
-      eturn (
+      return (
       (!this.state.posts) ? 
       (<h1>
         Loading...
       </h1>) : (
       <WrappedComponent 
-      {...this.props} 
+      {...this.props}
       title="No title"
       {...propsToSend}
       />

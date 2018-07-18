@@ -8,21 +8,21 @@ class Post extends Component {
 
   handleEditClick = (e) => {
     e.preventDefault();
-    this.props.history.push('/posts/' + this.state.id + '/edit');
+    this.props.history.push('/posts/' + this.props.id + '/edit');
   }
 
   handleDeleteClick = (e) => {
     e.preventDefault();
-    deletePost(this.state.id);
+    deletePost(this.props.id);
     this.props.history.goBack();
   }
 
   render() {
+    console.log(this.props)
     return (
       <Fragment>
         <Segment style={{width: 600, margin: "0 auto"}} className="ui centered">
           <div className="ui top attached header clearing">
-            {console.log(this.props.id)}
             <Link to={'/posts/' + this.props.id}>
               {this.props.title}
             </Link> 

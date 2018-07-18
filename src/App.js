@@ -11,7 +11,20 @@ import PostEditForm from './components/post/PostEditForm';
 import PostCreateForm from './components/post/PostCreateForm';
 
 class App extends Component {
+  state = {
+    userLoggedIn: false
+  }
+
+  componentDidMount() {
+    if (typeof(localStorage.token) === 'undefined') {
+      this.setState({userLoggedIn: false})
+    } else {
+      this.setState({userLoggedIn: true})
+    }
+  }
+
   render() {
+
     return (
       <Router>
         <div className="ui container" >

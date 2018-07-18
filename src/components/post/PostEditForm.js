@@ -2,20 +2,23 @@ import React, { Component } from 'react';
 import { TextArea, Button, Segment, Form } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import { updatePost, fetchPost } from '../../services/post';
+import withPostData from '../withPostData';
 
 class PostEditForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: this.props.match.params.id,
-      post: ''
-    };
+  }
+
+  state = {
+    id: this.props.match.params.id,
+    post: this.props.post
   }
 
   componentDidMount = async () => {
-    console.log(this.state.id);
-    const { post } = await fetchPost(this.state.id);
-    this.setState({ post });
+    this.setState({ 
+      id: this.props.match.params.id,
+      post: this.props.post
+     });
   }
 
   textAreaChangeHandler = (e) => {
@@ -34,6 +37,12 @@ class PostEditForm extends Component {
     this.props.history.goBack();
   }
 
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.post !== this.props.post) {
+      this.setState({post: this.props.post});
+    }
+  }
+  
   render() {
     return (
       <Segment style={{ maxWidth: 700, margin: '0 auto' }} >
@@ -50,4 +59,4 @@ class PostEditForm extends Component {
   }
 }
 
-export default withRouter(PostEditForm);
+export default withRouter(withPostData(PostEditForm));
